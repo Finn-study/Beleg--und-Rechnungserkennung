@@ -1,6 +1,6 @@
 """
 Datenaugmentierung aller Belege und Rechnungen. Ausgenommen hiervon wurden in diesem Projekt eine Gruppe von
-bereits augmentierten Rechnungen (siehe hierzu augmentation_unscharf.py).
+bereits augmentierten Rechnungen (siehe hierzu augmentation_leicht.py).
 
 Jedes Bild aus dem Eingabeordner wird mit zufälligen Störungen versehen, die reale Aufnahmebedingen nachahmen.
 - schräg fotografiert
@@ -66,7 +66,7 @@ for img_path in image_files:
 
     ### 2. Bildrauschen ###
     # Wahrscheinlichkeit: 50 %
-    # Gaußsches Rauschen mit zufälliger Stärke
+    # Gaußsches Rauschen mit zufälliger Stärke (Standardabweichung 10-30)
     if random.random() < 0.5:
         noise = np.random.normal(0, random.randint(10, 30), img.shape)
         # Werte auf gültigen Bereich 0-255 begrenzen
@@ -75,7 +75,7 @@ for img_path in image_files:
 
     ### 3. Rand / Hintergrund hinzufügen ###
     # Wahrscheinlichkeit: 40 %
-    # Beleg wird mittig aurf ein zufälliges Hintergrundbild gelegt
+    # Beleg wird mittig auf ein zufälliges Hintergrundbild gelegt
     if random.random() < 0.4:
         # Zufällige Randbreite je Seite (50-300 Pixel)
         top = random.randint(50, 300)
@@ -129,7 +129,7 @@ for img_path in image_files:
 
     ### 6. Schrift ausbleichen ###
     # Wahrscheinlichkeit: 25 %
-    # Simuliert verblasste Schrift älterer Rechnungen / Belege
+    # simuliert verblasste Schrift älterer Rechnungen / Belege
     # Kontrast wird verringert und Helligkeit erhöht
     if random.random() < 0.25:
         alpha = random.uniform(0.6, 0.9)                # Kontrast
@@ -139,7 +139,7 @@ for img_path in image_files:
 
     ### 7. Flecken ####
     # Wahrscheinlichkeit: 30 %
-    # Simuliert Kafee- oder Fettflecken
+    # simuliert Kaffee- oder Fettflecken
     # 1-3 halbtransparente, gelb-bräunliche Kreise
     if random.random() < 0.3:
         overlay = img.copy()
