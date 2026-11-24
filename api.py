@@ -10,6 +10,7 @@ from deskew import determine_skew
 import torch
 import uvicorn
 from PIL import Image
+import os
 
 
 
@@ -127,11 +128,11 @@ def clean_extracted_text(label, text, context=None):
 # =============== #
 # Setup & Modelle #
 # =============== #
-model_path = "C:/Users/Platzhalter"
+MODEL_PATH = os.getenv("MODEL_PATH", "Finn-study/layoutlmv3-rechnungserkennung")
 
 # apply_ocr = False: Texterkennung übernimmt EasyOCR, nicht der Processor, welcher Tesseract verwenden würde.
-processor = LayoutLMv3Processor.from_pretrained(model_path, apply_ocr=False)
-model = LayoutLMv3ForTokenClassification.from_pretrained(model_path)
+processor = LayoutLMv3Processor.from_pretrained(MODEL_PATH, apply_ocr=False)
+model = LayoutLMv3ForTokenClassification.from_pretrained(MODEL_PATH)
 model.eval()
 
 app = FastAPI()
