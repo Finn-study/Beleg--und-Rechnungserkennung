@@ -31,7 +31,7 @@ jobs:
         run: python api.py > api.log 2>&1 &
 
       - name: Belege verarbeiten
-        run: python batch_verarbeitung.py
+        run: python batch.py
 
       - name: Ergebnisse speichern
         if: always()
