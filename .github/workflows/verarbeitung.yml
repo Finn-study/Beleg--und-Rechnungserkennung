@@ -42,3 +42,7 @@ jobs:
           git add -f ergebnisse/ergebnisse.csv
           git commit -m "Neue Ergebnisse" || exit 0
           git push
+
+      - name: API-Protokoll anzeigen
+        if: always()
+        run: cat api.log
