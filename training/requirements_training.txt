@@ -1,0 +1,12 @@
+Faker==40.43.0
+Pillow==13.0.0
+opencv-python==5.0.0.93
+numpy==2.5.4
+deskew==1.6.1
+easyocr==1.7.2
+pandas==3.0.6
+torch==2.14.1
+transformers==5.22.1
+accelerate==1.15.0
+evaluate==0.4.6
+seqeval==1.2.2

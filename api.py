@@ -14,7 +14,7 @@ import os
 
 
 
-# ============================ #
+# ============================ # 
 # FUNKTION zum POST-PROCESSING #
 # ============================ #
 def clean_extracted_text(label, text, context=None):
