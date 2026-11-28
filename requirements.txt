@@ -4,6 +4,7 @@ python-multipart==0.0.34
 easyocr==1.7.2
 transformers==5.24.1
 torch==2.15.0
+torchvision==0.29.1
 opencv-python-headless==5.1.0.95
 numpy==2.5.5
 deskew==1.6.1
