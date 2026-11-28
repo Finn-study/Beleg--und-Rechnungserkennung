@@ -27,7 +27,7 @@ jobs:
 
       - name: Belege verarbeiten
         env:
-          API_URL: https://belegerkennung-xxxxxxxxxx.europe-west1.run.app
+          API_URL: ${{ secrets.API_URL }}
         run: python batch.py
 
       - name: Ergebnisse speichern
