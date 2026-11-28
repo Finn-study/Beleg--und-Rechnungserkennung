@@ -1,0 +1,11 @@
+# Nur api.py und requirements.txt werden für den Container gebraucht
+# Alles andere wird ausgelassen
+.git
+.github
+training
+eingang
+verarbeitet
+fehler
+ergebnisse
+debug
+__pycache__
