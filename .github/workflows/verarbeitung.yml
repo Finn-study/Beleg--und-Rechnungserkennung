@@ -23,14 +23,11 @@ jobs:
           python-version: "3.14"
 
       - name: Pakete installieren
-        run: |
-          pip install torch==2.15.0 torchvision==0.29.1 --index-url https://download.pytorch.org/whl/cpu
-          pip install -r requirements.txt
-
-      - name: API starten
-        run: python api.py > api.log 2>&1 &
+        run: pip install requests==2.34.2
 
       - name: Belege verarbeiten
+        env:
+          API_URL: https://belegerkennung-xxxxxxxxxx.europe-west1.run.app
         run: python batch.py
 
       - name: Ergebnisse speichern
@@ -42,7 +39,3 @@ jobs:
           git add -f ergebnisse/ergebnisse.csv
           git commit -m "Neue Ergebnisse" || exit 0
           git push
-
-      - name: API-Protokoll anzeigen
-        if: always()
-        run: cat api.log
