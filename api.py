@@ -175,8 +175,8 @@ def ausrichten(img):
     ]
 
     def bewertung(bild):
-        # Summe der Confidence
-        return sum(prob for (_, _, prob) in reader.readtext(bild, detail=1))
+        # Konfidenz x Textlänge: bevorzugt lange, sicher erkannte Wörter
+        return sum(prob * len(text) for (_, text, prob) in reader.readtext(bild, detail=1))
 
     return max(kandidaten, key=bewertung)
 
